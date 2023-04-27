@@ -1,0 +1,15 @@
+#!/bin/bash
+cd /src
+git clone https://review.coreboot.org/coreboot
+cd coreboot
+mkdir -p 3rdparty/blobs/mainboard/lenovo/x220
+make crossgcc-i386 CPUS=$(nproc) 
+cp /prep/defconfig .config
+cp /prep/splash.bmp splash.bmp
+cd util/ifdtool
+make
+cd ../..
+./util/ifdtool/ifdtool -x /prep/lenovox220.bin
+python ./util/me_cleaner/me_cleaner.py -t -r flashregion_2_intel_me.bin -O flashregion_2_neutered_me.bin
+mv flashregion_*.bin 3rdparty/blobs/mainboard/lenovo/x220/
+echo "You can cd into the /src/coreboot, run make nconfig, save it and run make -j$(nproc)"
