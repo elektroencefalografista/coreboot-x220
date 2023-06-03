@@ -1,5 +1,5 @@
 # Coreboot with Tianocore for ThinkPad X220
-Dockerfile + scripts to simplify building and updating coreboot for Lenovo ThinkPad X220.
+Dockerfile + scripts to simplify building and updating coreboot for Lenovo ThinkPad X220. Tested and confirmed to successfully build Coreboot 4.19 on Ubuntu 22.04 and Fedora Silverblue 37.
 
 ## How compile?
 
