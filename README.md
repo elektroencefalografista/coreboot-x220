@@ -6,7 +6,7 @@ Dockerfile + scripts to simplify building and updating coreboot for Lenovo Think
 1. Clone this repo
 2. Make sure all the files in ```files``` directory make sense:
 	- ```splash.bmp``` is the boot splash image that will be used
-	- ```lenovox220.bin``` is a dump of the stock X220 bios. Used to extract some proprietary driver blobs. Ripping it from a bios update file off of Lenovo's website would probably work but it's not tested
+	- ```lenovox220.bin``` is a dump of the stock X220 bios. **You have to provide it yourself**. Used to extract some proprietary driver blobs. Ripping it from a bios update file off of Lenovo's website would probably work but it's not tested
 	- ```defconfig``` is the config file to make it all work for X220. No need to mess with it too much unless some major options get deprecated/modified on coreboot's side
 	- ```prepX220``` is the actual script that puts everything in place - pulls in the coreboot repo, sets up the toolchain, compiles all the tools needed and extracts the blobs from the bios image
 3. Run ```./build.sh``` to build the Docker image
